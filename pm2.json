@@ -1,0 +1,6 @@
+{
+  "name": "cam-uploader",
+  "script": "npm",
+  "args" : "start",
+  "time": true
+}

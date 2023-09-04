@@ -1,0 +1,21 @@
+deploy host:
+  stage: deploy
+  image: alpine
+  script:
+    - apk update && apk upgrade
+    - apk add openssh bash rsync
+    - mkdir "${HOME}/.ssh"
+    - ssh-keyscan -H ${HOST_IP} >> "${HOME}/.ssh/known_hosts"
+    - echo "${SSH_KEY}" > "${HOME}/.ssh/id_rsa"
+    - chmod 700 "${HOME}/.ssh/id_rsa"
+    - echo "${ENV}" > "./.env"
+    - rsync -az --chmod=755 --delete ./ ""@${HOST_IP}:${HOST_DIR}
+    - ssh timur@${HOST_IP} 'bash -l -c "
+      cd /var/www/cam-uploader;
+      npm install;
+      pm2 start pm2.json"'
+  variables:
+    HOST_IP: ""
+    SSH_KEY: ${SSH_PRIVATE_KEY}
+    ENV: ${ENV_VARS}
+    HOST_DIR: /var/www/cam-uploader

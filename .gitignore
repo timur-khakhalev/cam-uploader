@@ -1,0 +1,11 @@
+node_modules
+output
+storage
+.idea
+tests
+
+*.dav
+*.mp4
+package-lock.json
+.env
+ffmpeg

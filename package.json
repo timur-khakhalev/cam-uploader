@@ -1,0 +1,36 @@
+{
+  "name": "video_converter",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.359.0",
+    "dotenv": "^16.0.0",
+    "ffbinaries": "^1.1.5",
+    "fluent-ffmpeg": "^2.1.2",
+    "glob": "^8.0.1",
+    "module-alias": "^2.2.3",
+    "node-cache": "^5.1.2",
+    "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "7.13.0",
+    "eslint-config-standard": "^16.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "23.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  },
+  "_moduleAliases": {
+    "@": "./src"
+  }
+}
